@@ -73,6 +73,11 @@ Should you find an error, or improve anything, be it in the config itself or in 
 | :----------------------------------- | ------ | ------------------- | ---------------------------- |
 | iCloud, iMessage, FaceTime | ✅ | Whitelisted Apple ID, Valid SMBIOS   | See [Dortania / OpenCore-Install-Guide](https://dortania.github.io/OpenCore-Post-Install/universal/iservices.html)  |
 | Handoff | ✅ | `AirportIltwm.kext` | - |
+	
+> ### Miscellaneous
+| Feature                              | Status | Dependency          | Remarks                      |
+| :----------------------------------- | ------ | ------------------- | ---------------------------- |
+| Dual Boot | ✅ | - | Windows & macOS (Use [this](https://dortania.github.io/OpenCore-Multiboot/empty/samedisk.html#precautions) guide to setup dual boot on the same drive) |
 
 </details>  
 
