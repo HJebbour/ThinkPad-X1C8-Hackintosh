@@ -274,8 +274,8 @@ Refer to [ThinkPad X1 Carbon Gen 8 Specs](https://psref.lenovo.com/syspool/Sys/P
 
 <details><summary><strong>NEOFETCH</strong></summary>
     <br>
-    <p float="left">
-        <img src="./Other/README_Resources/Neofetch-Monterey.png" alt="Neofetch Monterey" width="600">
+    <p float="center">
+        <img src="./Docs/Neofetch-Screenshot.png" alt="Neofetch" width="600">
     </p>
 </details> 
 
