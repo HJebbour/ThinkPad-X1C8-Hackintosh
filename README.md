@@ -33,7 +33,7 @@ Should you find an error, or improve anything, be it in the config itself or in 
 | :----------------------------------- | ------ | ------------------- | ---------------------------- |
 | Full Graphics Accleration (QE/CI)    | ✅   | `WhateverGreen.kext` & `AAPL,ig-platform-id` = 0900A53E & `device-id` = C89B0000 | -   |
 | Audio Output                      | ✅   | `AppleALC.kext` with Layout ID = 71    | -   |
-| Audio Speakers                       | ✅   | `AppleALC.kext` with Layout ID = 71    | You have to manually select the right speakers (2 at the bottom rear), can't get all 4 speakers to work together   |
+| Audio Speakers                       | ✅   | `AppleALC.kext` with Layout ID = 71    | You have to manually select the proper speakers (2 at the bottom rear). I can't get all 4 speakers to work together for now |
 | Audio Input | ✅   | `AppleALC.kext` with Layout ID = 71    | Headset microphone is inconsistent and needs more testing   |
 | Automatic Headphone Output Switching | ✅   | `AppleALC.kext` with Layout ID = 71    | -   |
 
@@ -41,8 +41,8 @@ Should you find an error, or improve anything, be it in the config itself or in 
 | Feature                              | Status | Dependency          | Remarks                      |
 | :----------------------------------- | ------ | ------------------- | ---------------------------- |
 | Battery | ✅    | `ECEnabler.kext`             | - |
-| CPU Power Management (SpeedShift)    |    ✅  | `CPUFriend.kext` with `CPUFriendFriend` | Idle at 800mhz
-| iGPU Power Management        | ✅ | XCPM, enabled by `SSDT-PLUG.aml`                   | - |
+| CPU Power Management (SpeedShift)    |    ✅  | `CPUFriend.kext` with `CPUFriendDataProvider.kext` | Idle at 800mhz
+| iGPU Power Management        | ✅ | `SSDT-PLUG.aml` | - |
 | NVMe Drive Battery Management | ✅     | `NVMeFix.kext`  | Generally, NVMe drives will drain more power than SATA drives.           |
 | S3 Sleep / Hibernation Mode 3 | ✅ | - | - |
 
@@ -70,6 +70,7 @@ Should you find an error, or improve anything, be it in the config itself or in 
 | Feature                              | Status | Dependency          | Remarks                      |
 | :----------------------------------- | ------ | ------------------- | ---------------------------- |
 | iCloud, iMessage, FaceTime | ✅ | Whitelisted Apple ID, Valid SMBIOS   | See [Dortania / OpenCore-Install-Guide](https://dortania.github.io/OpenCore-Post-Install/universal/iservices.html)  |
+| Handoff | ✅ | `AirportIltwm.kext` | - |
 
 </details>  
 
@@ -79,9 +80,9 @@ Should you find an error, or improve anything, be it in the config itself or in 
 
 | Feature                              | Status | Dependency          | Remarks                      |
 | :----------------------------------- | ------ | ------------------- | ---------------------------- |
-| Fingerprint Reader   | ❌ | `DISABLED` in BIOS to save power if not used in other OSes.   | Never gonna work.    |
+| Fingerprint Reader   | ❌ | - | Never gonna work.    |
 | Wireless WAN         | ❌ | `DISABLED` in BIOS to save power.   | Unable to investigate as I have no need and my model did not come with WWAN |
-| Internal Microphone         | ❌ | `DISABLED` in BIOS to save power if not used in other OSes   | - |
+| Internal Microphone         | ❌ | - | - |
 | Fan Control / Multimedia Keys | ❌ | `YogaSMC.kext` | YogaSMC.kext needs to be updated in order to work with X1C8 |
 | Continuty              | ❌    | - | Not working with Intel cards |
 | AirDrop              | ❌    | - | Not working with Intel cards |
@@ -98,7 +99,7 @@ Should you find an error, or improve anything, be it in the config itself or in 
 | Boot chime                      | ⚠️ | - | Not yet tested |
 | FireVault 2                      | ⚠️ | - | Not yet tested |
 | Sidecar                      | ⚠️ | - | No device to test |
-| Battery Life                      | ⚠️ | - | Need time to thoroughly test battery life and compare with Windows 11 |
+| ThinkPad USB-C Docking Station | ⚠️ | - | Will be tested soon |
 
 </details> 
 
@@ -106,10 +107,10 @@ Should you find an error, or improve anything, be it in the config itself or in 
 <summary><strong>TO-DO ⏳</strong></summary>
 <br>
 
-| Feature                              | Status | Dependency          | Remarks                      |
-| :----------------------------------- | ------ | ------------------- | ---------------------------- |
-| Battery Life | ⏳ | - | Need time to thoroughly test battery life and compare with Windows 11 |
-| Four Speakers | ⏳ | - | I need to find a proper way to combine the two outputs or wait for a new `AppleALC.kext` update |
+| Feature                              | Status | Remarks                      |
+| :----------------------------------- | ------ | ---------------------------- |
+| Battery Life | ⏳ | Need time to thoroughly test battery life and compare with Windows 11 |
+| Four Speakers | ⏳ | I need to find a proper way to combine the two outputs or wait for a new `AppleALC.kext` update |
 
 </details>
 
