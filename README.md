@@ -105,7 +105,7 @@ Should you find an error, or improve anything, be it in the config itself or in 
 ## Introduction
 
 <details> 
-<summary><strong>This is not a guide!</strong></summary>
+<summary><strong>THIS IS NOT A GUIDE!</strong></summary>
 </br>
 
 This is not a guide. It shoud only be used as a reference. I provide some tips and tricks I learned on my journey in building a hackintosh. The best way of using this is as a supplement to the OpenCore guide. If you have questions about how to setup your specific hardware, are unclear about what to do, or would like to see the settings I've used.
@@ -119,11 +119,11 @@ EFI (drive)
 	├── OC
 ```
 
-It should work and your X1C7 should boot and work fine. **You will at minimum need to generate SMBIOS values if you want Apple services to work.** Note that all error reporting/logging has been turned off in the config.plist. You will have a difficult time trouble shooting with the setup provided. You can easily turn on the error reporting and logging if you follow the Dortania guide. Best of luck.
+It should work and your X1C8 should boot and work fine. **You will at minimum need to generate SMBIOS values if you want Apple services to work.** Note that all error reporting/logging has been turned off in the config.plist. You will have a difficult time trouble shooting with the setup provided. You can easily turn on the error reporting and logging if you follow the Dortania guide. Best of luck.
 
 > **NOTE** if you simply wish to copy my EFI please do the following:
 >
->1. [Generate SMBIOS values](https://dortania.github.io/OpenCore-Install-Guide/config-laptop.plist/coffee-lake-plus.html#nvram) and add them in the config.plist (Use MacBookPro15,1)
+>1. [Generate SMBIOS values](https://dortania.github.io/OpenCore-Install-Guide/config-laptop.plist/coffee-lake-plus.html#nvram) and add them in the config.plist (Use MacBookPro16,3)
 >2. Ensure the value of `showpicker` is  `true` in the config.plist file to provide the opencore menu when booting. 
 >3. Prepare your install [USB](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/)
 >4. Move the entire EFI folder (with your modifications) to the proper partition on your [USB](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/mac-install.html#setting-up-opencore-s-efi-environment) (or [hard drive](https://dortania.github.io/OpenCore-Post-Install/universal/oc2hdd.html) once the install is complete).
