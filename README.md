@@ -175,7 +175,7 @@ These are relevant components on my machine which may differ from yours, keep th
 | Memory | 8GB / 2133MHz LPDDR3 | - |
 | Battery | Integrated Li-Polymer 51Wh | - |
 | Camera | 720p Camera | - |
-| Wi-Fi & BT | Intel Wireless-AC 9560                          | - |
+| Wi-Fi & BT | Intel Wi-Fi 6 AX201 | - |
 | Input | PS2 Keyboard & Synaptics TrackPad | - |
 | Ports | 2x USB 3.1 Gen 1 (Right USB Always On)</br> 2x USB 3.1 Type-C Gen 2 / Thunderbolt 3 (Power Delivery and DisplayPort) [Max 5120x2880 @60Hz]</br> HDMI 1.4 (Max 4096x2160 @24Hz) | - |
 
@@ -258,6 +258,7 @@ Refer to [ThinkPad X1 Carbon Gen 8 Specs](https://psref.lenovo.com/syspool/Sys/P
   - [aidanchandra/x1c7-hackintosh](https://github.com/aidanchandra/x1c7-hackintosh)
   - [seven-of-eleven/Lenovo-ThinkPad-X1C7-OC-Hackintosh](https://github.com/seven-of-eleven/Lenovo-ThinkPad-X1C7-OC-Hackintosh)
   - [huyhoang8398/x1c7-hackintosh-20R1](https://github.com/huyhoang8398/x1c7-hackintosh-20R1)
+  - [EequalsMCsquare/ThinkPad-X1C7-OpenCore](https://github.com/EequalsMCsquare/ThinkPad-X1C7-OpenCore)
 	
 - X1C6-Hackintosh repositories:
   - [tylernguyen/x1c6-hackintosh](https://github.com/tylernguyen/x1c6-hackintosh)
