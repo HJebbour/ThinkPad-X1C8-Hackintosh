@@ -10,8 +10,6 @@ OpenCore-based EFI for Lenovo Thinkpad X1 Carbon 8th Generation | Model 20U9
 [![OpenCore](https://img.shields.io/badge/OpenCore-0.7.7-blue.svg)](https://github.com/acidanthera/OpenCorePkg/releases/tag/0.7.7)
 [![Model](https://img.shields.io/badge/Model-20U9-red)](https://www.lenovo.com/us/en/p/laptops/thinkpad/thinkpadx1/x1-carbon-gen-8-/20u9005mus)
 
-This template is forked from seven-of-eleven's repo Lenovo-ThinkPad-X1C7-OC-Hackintosh
-
 **DISCLAIMER:**
 As you embark on your Hackintosh journey you are encouraged to **READ** the entire README and [Dortania](https://dortania.github.io/getting-started/) guides before you start.
 
