@@ -102,6 +102,17 @@ Should you find an error, or improve anything, be it in the config itself or in 
 
 </details> 
 
+<details>  
+<summary><strong>TO-DO ⏳</strong></summary>
+<br>
+
+| Feature                              | Status | Dependency          | Remarks                      |
+| :----------------------------------- | ------ | ------------------- | ---------------------------- |
+| Battery Life | ⏳ | - | Need time to thoroughly test battery life and compare with Windows 11 |
+| Four Speakers | ⏳ | - | I need to find a proper way to combine the two outputs or wait for a new `AppleALC.kext` update |
+
+</details>
+
 ## Introduction
 
 <details> 
@@ -267,7 +278,7 @@ Refer to [ThinkPad X1 Carbon Gen 8 Specs](https://psref.lenovo.com/syspool/Sys/P
     </p>
 </details> 
 
-## Before installation
+## Before Installation
 
 <details><summary><strong>UEFI SETTINGS</strong></summary>
 <br>
@@ -336,57 +347,29 @@ Pick your keyboard layout here:
 
 ## Post-Install
 
-<details><summary><strong>TrackPad - Disable force touch</strong></summary>
+<details><summary><strong>TRACKPAD</strong></summary>
 <br>
 
-If the **Battery** management **doesn't show up** in the System Preferences after the SSDT-Batt.aml file is added to your ACPI folder and config.plist file. You will not be able to change any trackpad settings. You may experience the annoying behaviour of clicking on the touchpad and it doing a **Force Touch** where the preview of the file is shown. I found this very annoying. You can disable force touch by modifying the file in `~/Library/Preferences/com.apple.AppleMultitouchTrackpad.plist`
-Opened it with Propertree and changed **ForceSuppressed** to **True**
+To improve the Trackpad in macOS, you have to disable `Force Click and haptic feedback` in `System Preferences -> Trackpad`
 
-Another trick to manage your trackpad, if you can't get the battery to work, is to connect a bluetooth trackpad. Once the bluetooth trackpad is connected you can adjust the settings. Disconnect the bluetooth trackpad and your built in one will maintain those settings.
-
-I used these methods prior to receiving a SSDT-Batt.aml that worked from a friendly Redditor [Galactic_Dev](https://www.reddit.com/user/Galactic_Dev)
 </details>  
 
-<details><summary><strong>Generate your own SMBIOS</strong></summary>
+<details><summary><strong>SMBIOS</strong></summary>
 <br>
 
-[GenSMBIOS](https://github.com/corpnewt/GenSMBIOS)
+Use [GenSMBIOS](https://github.com/corpnewt/GenSMBIOS) to create your own serial # based off of your preferred model.
 
-Use GenSMBIOS to create your own serial #... based off of your preferred model.
+- MacBookPro16,3 -`What I used`
+- MacBookPro16,2 -`Used by others`
 
-- MacBookPro15,1 -`What I used`
-- MacBookPro15,4 -`Reported as used by others`
-
-**Note:** If you use a different SMBIOS model than the MacbookPro15,1 that I've used. The provided USB mapping will not work.  You will need to edit the **USBMap.kext file**.  You can right click on the file and select **Show Package Contents**.  From there you can open the Info.plist file in ProperTree and change MacBookPro15,1 to whatever Model ID you've chosen. This should provide a working USBMap.kext.
+**Note:** If you use a different SMBIOS model than the MacbookPro16,3 that I've used. The provided USB mapping will not work.  You will need to edit the `USBMap.kext` file.  You can right click on the file and select **Show Package Contents**.  From there you can open the Info.plist file in ProperTree and change MacBookPro16,3 to whatever Model ID you've chosen. This should provide a working USBMap.kext.
 
 </details>  
 
 <details>  
-<summary><strong>CPUFriend power management</strong></summary>
+<summary><strong>POWER MANAGEMENT</strong></summary>
 <br>
 
-Generate CPUFriendDataProvider for your machine [here](https://github.com/fewtarius/CPUFriendFriend) or use those I've provided. My files are set for power conservation over performance. Highly recommended that you use power management.
-
-</details>  
-
-<details>  
-<summary><strong>Audio Setup</strong></summary>
-<br>
-
-## Audio Setup enable both top and bottom speakers:
-
-| Key       | Value    |
-| --------- | -------- |
-| boot-args | alcid=71 |
-
-Using the above boot-arg to initially setup your config.plist file. This will enable the top and bottom speakers in the **System Preferences>Sound** allowing you to select either set of speakers. To combine the two you'll need to open **Audio MIDI Setup** (use Spotlight to find and open it) and create an **Aggregate Device** with both sets of speakers. Unfortunately you can't control the volume of an Aggregate Device with the volume keys. You'll need to install a utility as highlighted below.
-
-Create **Multi-output device** or **Aggregate Device** in **Audio MIDI Setup** controller for all speakers - use utility like [AggregateVolumeMenu](https://github.com/adaskar/AggregateVolumeMenu) to control the volume
-
-- See description here [Change Volume on Aggregate Sound](https://gurhanpolat.medium.com/change-volume-on-aggregate-sound-815fd575347a)
-
-If you're happy with the setup above you can use the guide to replace alcid=71 per below:
-
-- Add audio codec to DeviceProperties - layout-id | data | **47000000**
+Generate CPUFriendDataProvider for your machine [here](https://github.com/fewtarius/CPUFriendFriend) or use those I've provided. Highly recommended that you use power management.
 
 </details>
