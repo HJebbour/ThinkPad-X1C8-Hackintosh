@@ -32,39 +32,39 @@ Should you find an error, or improve anything, be it in the config itself or in 
 > ### Video and Audio
 | Feature                              | Status | Dependency          | Remarks                      |
 | :----------------------------------- | ------ | ------------------- | ---------------------------- |
-| Full Graphics Accleration (QE/CI)    | ✅   | `WhateverGreen.kext`                   | -   |
-| Audio Recording                      | ✅   | `AppleALC.kext` with Layout ID = 71    | -   |
-| Audio Playback                       | ✅   | `AppleALC.kext` with Layout ID = 71    | -   |
+| Full Graphics Accleration (QE/CI)    | ✅   | `WhateverGreen.kext` & `AAPL,ig-platform-id` = 0900A53E & `device-id` = C89B0000 | -   |
+| Audio Output                      | ✅   | `AppleALC.kext` with Layout ID = 71    | -   |
+| Audio Speakers                       | ✅   | `AppleALC.kext` with Layout ID = 71    | You have to manually select the right speakers (2 at the bottom rear), can't get all 4 speakers to work together   |
+| Audio Input | ✅   | `AppleALC.kext` with Layout ID = 71    | Headset microphone is inconsistent and needs more testing   |
 | Automatic Headphone Output Switching | ✅   | `AppleALC.kext` with Layout ID = 71    | -   |
 
-> ### Power, Charge, Sleep and Hibernation
+> ### Power Management, Battery, Charge, Sleep and Hibernation
 | Feature                              | Status | Dependency          | Remarks                      |
 | :----------------------------------- | ------ | ------------------- | ---------------------------- |
-| Battery | ✅    | `ECEnabler.kext`             | 
+| Battery | ✅    | `ECEnabler.kext`             | - |
 | CPU Power Management (SpeedShift)    |    ✅  | `CPUFriend.kext` with `CPUFriendFriend` | Idle at 800mhz
-| iGPU Power Management        | ✅ | XCPM, enabled by `SSDT-PLUG.aml`                   | 
+| iGPU Power Management        | ✅ | XCPM, enabled by `SSDT-PLUG.aml`                   | - |
 | NVMe Drive Battery Management | ✅     | `NVMeFix.kext`  | Generally, NVMe drives will drain more power than SATA drives.           |
+| S3 Sleep / Hibernation Mode 3 | ✅ | - | - |
 
-> ### Input/ Output
+> ### Connectivity
 | Feature                              | Status | Dependency          | Remarks                      |
 | :----------------------------------- | ------ | ------------------- | ---------------------------- |
 | WiFi                                       | ✅ | `AirportIltwm.kext`  | -       |
-| Bluetooth                                  | ✅ | `AirportIltwm.kext`, `IntelBluetoothFirmware.kext` and `BlueToolFixup.kext` | - |
+| Bluetooth                                  | ✅ | `IntelBluetoothFirmware.kext` and `BlueToolFixup.kext` | - |
 | Ethernet                                   | ✅ | `IntelMausi.kext` | -                  |
-| HDMI 1.4                               | ✅ | Framebuffer and BusID patching | Hotplug with 4K Resolution |
-| USB 2.0 / USB 3.0 | ✅ | `USBMap.kext`   | Create your own USBMap.kext using [Corpnewt](https://github.com/corpnewt/USBMap)     |
-| USB 3.1        (Type-C  )                           |  ✅  | `USBMap.kext`   | Hotplug     |
-| USB Power Properties in macOS              | ✅ | -    | -     |
-| Thunderbolt 3 Hotplug                      | ✅ | -    | Native interface within System Report   |
+| HDMI 1.4                               | ✅ | BusID patching | Hotplug with 4K Resolution |
+| USB 2.0 / USB 3.0 | ✅ | `USBMap.kext`   | Create your own USBMap.kext using [CorpNewt](https://github.com/corpnewt/USBMap) |
+| USB 3.1 (Type-C)                           | ✅ | `USBMap.kext` and enable ThunderBolt 3 in `BIOS` | Hotplug |
+| USB Power Properties in macOS              | ✅ | - | - |
 
 > ### Display, TrackPad, TrackPoint, and Keyboard
 | Feature                              | Status | Dependency          | Remarks                      |
 | :----------------------------------- | ------ | ------------------- | ---------------------------- |
-| Brightness Adjustments | ✅  | `WhateverGreen.kext`, `SSDT-PNLF-CFL.aml`, `AppleBacklightSmoother.kext`, and `BrightnessKeys.kext`| `AppleBacklightSmoother.kext` is optional for smoother birghtness adjustments |
+| Brightness Adjustments | ✅  | `WhateverGreen.kext`, `SSDT-PNLF.aml`, `enable-backlight-smoother` property, and `BrightnessKeys.kext`| `enable-backlight-smoother` property is optional for smoother birghtness adjustments |
 | TrackPoint             | ✅  | `VoodooPS2Controller.kext`                                      | -       |
-| TrackPad               | ✅  | `VoodooPS2Controller.kext`  | - |
+| TrackPad               | ✅  | `VoodooPS2Controller.kext`, `VoodooI2C.kext`, and `VoodooI2CHID.kext` | - |
 | Built-in Keyboard      | ✅  | `VoodooPS2Controller.kext` | - |
-| Multimedia Keys        | ✅  | `BrightnessKeys.kext` and [YogaSMC](https://github.com/zhen-zen/YogaSMC) | `YogaSMC` is recommended and preferred over ThinkpadAssisstant  | 
 
 > ### macOS Continuity
 | Feature                              | Status | Dependency          | Remarks                      |
@@ -79,10 +79,10 @@ Should you find an error, or improve anything, be it in the config itself or in 
 
 | Feature                              | Status | Dependency          | Remarks                      |
 | :----------------------------------- | ------ | ------------------- | ---------------------------- |
-| Fingerprint Reader   | ❌ | `DISABLED` in BIOS to save power if not used in other OSes.   | Linux support was only recently added    |
-| Wireless WAN         | ❌ | `DISABLED` in BIOS to save power.   | Unable to investigate as I have no need and my model did not come with WWAN. |
+| Fingerprint Reader   | ❌ | `DISABLED` in BIOS to save power if not used in other OSes.   | Never gonna work.    |
+| Wireless WAN         | ❌ | `DISABLED` in BIOS to save power.   | Unable to investigate as I have no need and my model did not come with WWAN |
 | Internal Microphone         | ❌ | `DISABLED` in BIOS to save power if not used in other OSes   | - |
-| Fan Control / Multimedia Keys | ❌ | `YogaSMC` | YogaSMC.kext needs to be updated in order to work with X1C8 |
+| Fan Control / Multimedia Keys | ❌ | `YogaSMC.kext` | YogaSMC.kext needs to be updated in order to work with X1C8 |
 | Continuty              | ❌    | Not working with Intel cards | - |
 | AirDrop              | ❌    | Not working with Intel cards | - |
 
