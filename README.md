@@ -21,7 +21,7 @@ You can find a wealth of knowledge on [Reddit](https://www.reddit.com/r/hackinto
 
 Should you find an error, or improve anything, be it in the config itself or in the my documentation, please consider opening an issue or a pull request to contribute.
 
-### I am not responsible for any damages you may cause.
+**I am not responsible for any damages you may cause.**
 
 ## Summary
 
