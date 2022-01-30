@@ -1,4 +1,4 @@
-# macOS Monterey on Lenovo Thinkpad X1 Carbon Gen 8 (20U9)
+# macOS on Lenovo Thinkpad X1 Carbon Gen 8 (20U9)
 
 OpenCore-based EFI for Lenovo Thinkpad X1 Carbon 8th Generation | Model 20U9
 
