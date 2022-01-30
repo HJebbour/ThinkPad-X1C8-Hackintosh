@@ -21,7 +21,7 @@ Should you find an error, or improve anything, be it in the config itself or in 
 
 ### I am not responsible for any damages you may cause.
 
-## Status
+## Summary
 
 <details>  
 
@@ -37,7 +37,7 @@ Should you find an error, or improve anything, be it in the config itself or in 
 | Audio Input | ✅   | `AppleALC.kext` with Layout ID = 71    | Headset microphone is inconsistent and needs more testing   |
 | Automatic Headphone Output Switching | ✅   | `AppleALC.kext` with Layout ID = 71    | -   |
 
-> ### Power Management, Battery, Charge, Sleep and Hibernation
+> ### Power Management
 | Feature                              | Status | Dependency          | Remarks                      |
 | :----------------------------------- | ------ | ------------------- | ---------------------------- |
 | Battery | ✅    | `ECEnabler.kext`             | - |
@@ -50,25 +50,26 @@ Should you find an error, or improve anything, be it in the config itself or in 
 | Feature                              | Status | Dependency          | Remarks                      |
 | :----------------------------------- | ------ | ------------------- | ---------------------------- |
 | WiFi                                       | ✅ | `AirportIltwm.kext`  | -       |
-| Bluetooth                                  | ✅ | `IntelBluetoothFirmware.kext` and `BlueToolFixup.kext` | - |
+| Bluetooth                                  | ✅ | `IntelBluetoothFirmware.kext`, `BlueToolFixup.kext`, and `USBMap.kext` | - |
 | Ethernet                                   | ✅ | `IntelMausi.kext` | -                  |
 | HDMI 1.4                               | ✅ | BusID patching | Hotplug with 4K Resolution |
 | USB 2.0 / USB 3.0 | ✅ | `USBMap.kext`   | Create your own USBMap.kext using [CorpNewt](https://github.com/corpnewt/USBMap) |
-| USB 3.1 (Type-C)                           | ✅ | `USBMap.kext` and enable ThunderBolt 3 in `BIOS` | Hotplug |
+| USB 3.1 (Type-C)                           | ✅ | `USBMap.kext` and enable Thunderbolt 3 in `BIOS` | Hotplug |
 | USB Power Properties in macOS              | ✅ | - | - |
 
-> ### Display, TrackPad, TrackPoint, and Keyboard
+> ### Display, TrackPad, TrackPoint, Keyboard, and Webcam
 | Feature                              | Status | Dependency          | Remarks                      |
 | :----------------------------------- | ------ | ------------------- | ---------------------------- |
 | Brightness Adjustments | ✅  | `WhateverGreen.kext`, `SSDT-PNLF.aml`, `enable-backlight-smoother` property, and `BrightnessKeys.kext`| `enable-backlight-smoother` property is optional for smoother birghtness adjustments |
 | TrackPoint             | ✅  | `VoodooPS2Controller.kext`                                      | -       |
-| TrackPad               | ✅  | `VoodooPS2Controller.kext`, `VoodooI2C.kext`, and `VoodooI2CHID.kext` | - |
+| TrackPad               | ✅  | `VoodooI2C.kext`, and `VoodooI2CHID.kext` | - |
 | Built-in Keyboard      | ✅  | `VoodooPS2Controller.kext` | - |
+| Webcam      | ✅  | `USBMap.kext` | - |
 
 > ### macOS Continuity
 | Feature                              | Status | Dependency          | Remarks                      |
 | :----------------------------------- | ------ | ------------------- | ---------------------------- |
-| iCloud, iMessage, FaceTime | ✅ | Whitelisted Apple ID, Valid SMBIOS   | See [dortania /OpenCore-Install-Guide](https://dortania.github.io/OpenCore-Post-Install/universal/iservices.html)  |
+| iCloud, iMessage, FaceTime | ✅ | Whitelisted Apple ID, Valid SMBIOS   | See [Dortania / OpenCore-Install-Guide](https://dortania.github.io/OpenCore-Post-Install/universal/iservices.html)  |
 
 </details>  
 
@@ -82,8 +83,8 @@ Should you find an error, or improve anything, be it in the config itself or in 
 | Wireless WAN         | ❌ | `DISABLED` in BIOS to save power.   | Unable to investigate as I have no need and my model did not come with WWAN |
 | Internal Microphone         | ❌ | `DISABLED` in BIOS to save power if not used in other OSes   | - |
 | Fan Control / Multimedia Keys | ❌ | `YogaSMC.kext` | YogaSMC.kext needs to be updated in order to work with X1C8 |
-| Continuty              | ❌    | Not working with Intel cards | - |
-| AirDrop              | ❌    | Not working with Intel cards | - |
+| Continuty              | ❌    | - | Not working with Intel cards |
+| AirDrop              | ❌    | - | Not working with Intel cards |
 
 </details>  
 
@@ -105,6 +106,7 @@ Should you find an error, or improve anything, be it in the config itself or in 
 
 <details> 
 <summary><strong>This is not a guide!</strong></summary>
+</br>
 
 This is not a guide. It shoud only be used as a reference. I provide some tips and tricks I learned on my journey in building a hackintosh. The best way of using this is as a supplement to the OpenCore guide. If you have questions about how to setup your specific hardware, are unclear about what to do, or would like to see the settings I've used.
 
@@ -131,11 +133,103 @@ It should work and your X1C7 should boot and work fine. **You will at minimum ne
 
 <details> 
 <summary><strong>This is a guide!</strong></summary>
+</br>
 
 - To install macOS follow the guides provided by [Dortania](https://dortania.github.io/OpenCore-Install-Guide/)
 - Useful tools by [CorpNewt](https://github.com/corpnewt) and [headkaze](https://github.com/headkaze/Hackintool)
 
 </details>  
+
+<details>
+<summary><strong>HARDWARE</strong></summary>
+
+### Lenovo ThinkPad X1 Carbon Gen 8 (Core i7)
+
+These are relevant components on my machine which may differ from yours, keep these in mind as you will need to adjust accordingly, depending on your machine's configuration.
+
+| Category  | Component                                       | Note                                                         |
+| --------- | ----------------------------------------------- | ------------------------------------------------------------ |
+| Type | 20U9 | - |
+| CPU | Intel Core i7-10510U | - |
+| GPU | Intel UHD Graphics | - |
+| SSD | WDC PC SN720 SDAQNTW-512G-1001 | - |
+| Screen | 14" FHD - 1920 x 1080 | - |
+| Memory | 8GB / 2133MHz LPDDR3 | - |
+| Battery | Integrated Li-Polymer 51Wh | - |
+| Camera | 720p Camera | - |
+| Wi-Fi & BT | Intel Wireless-AC 9560                          | - |
+| Input | PS2 Keyboard & Synaptics TrackPad | - |
+| Ports | 2x USB 3.1 Gen 1 (Right USB Always On)</br> 2x USB 3.1 Type-C Gen 2 / Thunderbolt 3 (Power Delivery and DisplayPort) [Max 5120x2880 @60Hz]</br> HDMI 1.4 (Max 4096x2160 @24Hz) | - |
+
+Refer to [ThinkPad X1 Carbon Gen 8 Specs](https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_X1_Carbon_Gen_8/ThinkPad_X1_Carbon_Gen_8_Spec.PDF) for possible stock configurations.
+
+</details>  
+
+<details>
+
+<summary><strong>SOFTWARE</strong></summary>
+<br>
+
+| Component      | Version |
+| -------------- | ------- |
+| OpenCore | 0.7.7 |
+| macOS Monterey | 12.2 |
+| Windows 11 | 21H2 |
+
+</details>
+
+<details>
+<summary><strong>ACPI</strong></summary>
+<br>
+
+| Component              |
+| ---------------------- |
+| SSDT-AWAC |
+| SSDT-PLUG |
+| SSDT-PNLF |
+| SSDT-USBX |
+| SSDT-XOSI |
+
+</details>
+
+<details>
+<summary><strong>KEXT</strong></summary>
+<br>
+
+| Kext                   | Version |
+| ---------------------- | ------- |
+| AirportItlwm | 2.1.0 |
+| AppleALC | 1.6.8 |
+| BlueToolFixup | 2.6.1 |
+| CPUFriend | 1.2.4 |
+| CPUFriendDataProvider | 1.0.0 |
+| ECEnabler | 1.0.2 |
+| IntelBluetoothFirmware | 2.1.0 |
+| IntelMausi | 1.0.7 |
+| Lilu | 1.5.9 |
+| NVMeFix | 1.0.9 |
+| SMCBatteryManager | 1.2.8 |
+| SMCProcessor | 1.2.8 |
+| SMCSuperIO | 1.2.8 |
+| USBMap | 1.0.0 |
+| VirtualSMC | 1.2.8 |
+| VoodooI2C | 2.6.5 |
+| VoodooI2CHID | 2.6.5 |
+| VoodooPS2Controller | 2.2.7 |
+| WhateverGreen | 1.5.6 |
+
+</details>
+
+<details><summary><strong>UEFI DRIVERS</strong></summary>
+<br>
+
+|     Driver      | Version           |
+| --------------- | ----------------- |
+| OpenCanopy.efi | OpenCorePkg 0.7.7 |
+| OpenHfsPlus.efi | OpenCorePkg 0.7.7 |
+| OpenRuntime.efi | OpenCorePkg 0.7.7 |
+
+</details>
 
 <details> 
 <summary><strong>Credits</strong></summary>
@@ -175,97 +269,6 @@ It should work and your X1C7 should boot and work fine. **You will at minimum ne
   - [zhtengw/EFI-for-X1C6-hackintosh](
 
 </details>  
-
-<details>
-<summary><strong>Hardware</strong></summary>
-<br>
-
-I used to own two Lenovo ThinkPad X1 Gen 7 laptops, an i5 and an i7. I now only have the one outlined below:
-
-[![UEFI](https://img.shields.io/badge/UEFI-N2HET58W-lightgrey)](https://pcsupport.lenovo.com/ca/en/products/laptops-and-netbooks/thinkpad-x-series-laptops/thinkpad-x1-carbon-7th-gen-type-20qd-20qe/downloads/ds540232-bios-update-utility-bootable-cd-for-linux-windows-10-64-bit-thinkpad-x1-carbon-7th-gen-x1-yoga-4th-gen)
-
-### X1C7 i5
-
-| Category  | Component                                       | Note                                                         |
-| --------- | ----------------------------------------------- | ------------------------------------------------------------ |
-| Type      | 20QD, 20QE                                      |                                                              |
-| CPU       | Intel Core i5-8265U                             |                                                              |
-| GPU       | Intel UHD 620                                   |                                                              |
-| SSD       | Toshiba 512GB                                   | Replaced cursed PM 981 which still doesn't work reliably     |
-| Screen    | 14" WQHD - 2560x1440                            |                                                              |
-| Memory    | 16GB / 2133MHz LPDDR3                           |                                                              |
-| Battery   | Integrated Li-Polymer 51Wh                      | Single battery                                               |
-| Camera    | 720p Camera                                     |                                                              |
-| Wifi & BT | Intel Wireless-AC 9560                          | Use AirportItlwm for your macOS version and enjoy native Wi-Fi control, or use Heliport app. |
-| Input     | PS2 Keyboard & Synaptics TrackPad (touchscreen) | I'm using ThinkPad Assistant an alternative most seem to be moving to [YogaSMC](https://github.com/zhen-zen/YogaSMC) for media keys like microphone switch, etc. |
-
-</details>  
-
-<details>
-
-<summary><strong>Main software</strong></summary>
-<br>
-
-| Component      | Version |
-| -------------- | ------- |
-| macOS Monterey | 12.1    |
-| OpenCore       | v0.7.7  |
-
-</details>
-
-<details>
-<summary><strong>ACPI Files</strong></summary>
-<br>
-
-| Component              |
-| ---------------------- |
-| SSDT-AWAC              |
-| SSDT-BATT              |
-| SSDT-EC-USBX-LAPTOP    |
-| SSDT-PLUG-DRTNIA       |
-| SSDT-PNLF-CFL          |
-| SSDT-ThinkPad_ClickPad |
-| SSDT-X1C6-KBRD         |
-| SSDT-XOSI              |
-
-</details>
-
-<details>
-<summary><strong>Kernel extensions</strong></summary>
-<br>
-
-| Kext                   | Version |
-| --------------------- | ------- |
-| AirportItlwm           | 2.1.0   |
-| AppleALC               | 1.6.8   |
-| BlueToolFixup          | 2.6.1   |
-| CPUFriend              | 1.2.4   |
-| CPUFriendDataProvider  | 1.00    |
-| IntelBluetoothFirmware | 2.1.0   |
-| IntelMausi             | 1.0.7   |
-| Lilu                   | 1.5.9   |
-| NVMeFix                | 1.0.9   |
-| SMCBatteryManager      | 1.2.8   |
-| SMCProcessor           | 1.2.8   |
-| SMCSuperIO             | 1.2.8   |
-| USBMap                 | 1.0.0   |
-| VirtualSMC             | 1.2.8   |
-| VoodooI2C              | 2.6.5   |
-| VoodooI2CHID           | 2.6.5   |
-| VoodooPS2Controller    | 2.2.7   |
-| WhateverGreen          | 1.5.6   |
-
-</details>
-
-<details><summary><strong>UEFI drivers</strong></summary>
-<br>
-
-|     Driver      | Version           |
-| ------------- | ----------------- |
-|   HfsPlus.efi   | OcBinaryData      |
-| OpenRuntime.efi | OpenCorePkg 0.7.7 |
-
-</details>
 
 <details><summary><strong>Neofetch screenshots</strong></summary>
     <br>
