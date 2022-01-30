@@ -19,8 +19,6 @@ Should you find an error, or improve anything, be it in the config itself or in 
 
 ### I am not responsible for any damages you may cause.
 
-<br>
-
 ## Summary
 
 <details>  
