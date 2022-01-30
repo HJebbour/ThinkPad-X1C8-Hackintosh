@@ -126,13 +126,13 @@ It should work and your X1C8 should boot and work fine. **You will at minimum ne
 >1. [Generate SMBIOS values](https://dortania.github.io/OpenCore-Install-Guide/config-laptop.plist/coffee-lake-plus.html#nvram) and add them in the config.plist (Use MacBookPro16,3)
 >2. Ensure the value of `showpicker` is  `true` in the config.plist file to provide the opencore menu when booting. 
 >3. Prepare your install [USB](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/)
->4. Move the entire EFI folder (with your modifications) to the proper partition on your [USB](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/mac-install.html#setting-up-opencore-s-efi-environment) (or [hard drive](https://dortania.github.io/OpenCore-Post-Install/universal/oc2hdd.html) once the install is complete).
+>4. Move the entire EFI folder (with your modifications) to the proper partition on your [USB](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/mac-install.html#setting-up-opencore-s-efi-environment) (or [SSD](https://dortania.github.io/OpenCore-Post-Install/universal/oc2hdd.html) once the install is complete).
 >5. [Install](https://dortania.github.io/OpenCore-Install-Guide/installation/installation-process.html#double-checking-your-work) - You'll need to select F12 to get the boot menu options and **boot from the USB each time the computer restarts** until you've copied the EFI folder onto the hard drive. You may also need to select the correct boot option during install.
 
 </details>  
 
 <details> 
-<summary><strong>This is a guide!</strong></summary>
+<summary><strong>THIS IS A GUIDE!</strong></summary>
 </br>
 
 - To install macOS follow the guides provided by [Dortania](https://dortania.github.io/OpenCore-Install-Guide/)
@@ -231,58 +231,47 @@ Refer to [ThinkPad X1 Carbon Gen 8 Specs](https://psref.lenovo.com/syspool/Sys/P
 
 </details>
 
-<details> 
-<summary><strong>Credits</strong></summary>
+<details>
+<summary><strong>OTHER REPOSITORIES</strong></summary>
+<br>
 
-**Shout out** to [NotARobot6969](https://github.com/NotARobot6969) for the DevicesProperties patches to enable HDMI.
+- X1C7-Hackintosh repositories:
+  - [suhrmann/x1c7-hackintosh](https://github.com/suhrmann/x1c7-hackintosh)
+  - [aidanchandra/x1c7-hackintosh](https://github.com/aidanchandra/x1c7-hackintosh)
+  - [seven-of-eleven/Lenovo-ThinkPad-X1C7-OC-Hackintosh](https://github.com/seven-of-eleven/Lenovo-ThinkPad-X1C7-OC-Hackintosh)
+  - [huyhoang8398/x1c7-hackintosh-20R1](https://github.com/huyhoang8398/x1c7-hackintosh-20R1)
+
+</details>  
+
+<details> 
+<summary><strong>CREDITS</strong></summary>
 
 ### Credit to all these great people whom I don't know but have made my hackintosh dreams a reality:
 
-- [EETagent](https://github.com/EETagent) For orginal T480 OpenCore repo (I like the layout of his guide and used it to create this one)
 - The guys from [Acidanthera](https://github.com/acidanthera) that make this possible
-- [1Revenger1](https://github.com/1Revenger1) and [leo-labs](https://github.com/leo-labs) for [VoodooRMI](https://github.com/VoodooSMBus/VoodooRMI) and [VoodooSMBus](https://github.com/VoodooSMBus/VoodooSMBus)
-- [Apple](http://apple.com) for macOS and HfsPlus.efi
-- [corpnewt](https://github.com/corpnewt) for [USBMap](https://github.com/corpnewt/USBMap) and [CPUFriendDataProvider](https://github.com/corpnewt/CPUFriendFriend)
+- [ben9923](https://github.com/ben9923) for [VoodooI2C](https://github.com/VoodooI2C/VoodooI2C)
+- [Apple](http://apple.com) for macOS
+- [CorpNewt](https://github.com/corpnewt) for [USBMap](https://github.com/corpnewt/USBMap) and [CPUFriendDataProvider](https://github.com/corpnewt/CPUFriendFriend)
 - [headkaze](https://github.com/headkaze) for [Hackintool](https://github.com/headkaze/Hackintool)
-- [jwise](https://github.com/jwise) for [HoRNDIS](https://github.com/jwise/HoRNDIS)
 - [Mieze](https://github.com/Mieze) for [IntelMausiEthernet](https://github.com/Mieze/IntelMausiEthernet)
-- [MSzturc](https://github.com/MSzturc) for [ThinkPad Assistant](https://github.com/MSzturc/ThinkpadAssistant)
 - [OpenIntelWireless](https://github.com/OpenIntelWireless/IntelBluetoothFirmware/releases) for [IntelBluetoothFirmware](https://github.com/OpenIntelWireless/IntelBluetoothFirmware), [itlwm](https://github.com/OpenIntelWireless/itlwm) and [HeliPort](hhttps://github.com/OpenIntelWireless/HeliPort)
-- [zhen-zen](https://github.com/zhen-zen) for [YogaSMC](https://github.com/zhen-zen/YogaSMC)
 - And every other contributor
 - People at [r/hackintosh](https://www.reddit.com/r/hackintosh/) for their advice and help
 
 </details>  
 
-<details>
-<summary><strong> OTHER REPOSITORIES </strong></summary>
-<br>
-
-
-- x1c7-hackintosh repositories:
-  - [suhrmann/x1c7-hackintosh](https://github.com/suhrmann/x1c7-hackintosh)
-  - [aidanchandra/x1c7-hackintosh](https://github.com/aidanchandra/x1c7-hackintosh)
-
-- x1c6-hackintosh repositories:
-  - [tylernguyen/x1c6-hackintosh](https://github.com/tylernguyen/x1c6-hackintosh) 
-  - [benbender/x1c6-hackintosh](https://github.com/benbender/x1c6-hackintosh)
-  - [zhtengw/EFI-for-X1C6-hackintosh](
-
-</details>  
-
-<details><summary><strong>Neofetch screenshots</strong></summary>
+<details><summary><strong>NEOFETCH</strong></summary>
     <br>
     <p float="left">
         <img src="./Other/README_Resources/Neofetch-Monterey.png" alt="Neofetch Monterey" width="600">
     </p>
 </details> 
 
-
-
 ## Before installation
 
-<details><summary><strong>UEFI settings</strong></summary>
+<details><summary><strong>UEFI SETTINGS</strong></summary>
 <br>
+	
 **Config**
 
 - **Keyboard/Mouse**
