@@ -1,7 +1,7 @@
 # macOS on Lenovo Thinkpad X1 Carbon Gen 8 (20U9)
 
 OpenCore-based EFI for Lenovo Thinkpad X1 Carbon 8th Generation | Model 20U9
-<img align="right" src="https://avadirect-freedomusainc1.netdna-ssl.com/Pictures/500/Lenovo_ThinkPad_X1_Carbon_Gen_8_20U90030US.png" alt="Lenovo ThinkPad X1 Carbon Gen 8" width="450">
+<img align="right" src="https://avadirect-freedomusainc1.netdna-ssl.com/Pictures/500/Lenovo_ThinkPad_X1_Carbon_Gen_8_20U90030US.png" alt="Lenovo ThinkPad X1 Carbon Gen 8" width="500">
 
 **Status: Work In Progress | Stable | Daily driver**
 
@@ -10,8 +10,12 @@ OpenCore-based EFI for Lenovo Thinkpad X1 Carbon 8th Generation | Model 20U9
 [![OpenCore](https://img.shields.io/badge/OpenCore-0.7.7-blue.svg)](https://github.com/acidanthera/OpenCorePkg/releases/tag/0.7.7)
 [![Model](https://img.shields.io/badge/Model-20U9-red)](https://www.lenovo.com/us/en/p/laptops/thinkpad/thinkpadx1/x1-carbon-gen-8-/20u9005mus)
 
+This repo is forked from several X1C7-Hackintosh repositories (See **OTHER REPOSITORIES**)
+
 **DISCLAIMER:**
 As you embark on your Hackintosh journey you are encouraged to **READ** the entire README and [Dortania](https://dortania.github.io/getting-started/) guides before you start.
+
+This X1C8 Hackintosh project aims to be an all-in-one maintained hub for Opencore-based hackintoshes on the Thinkad X1 Carbon Gen 8. In short, this X1C8-Hackintosh is very stable and is currently my daily driver. I fully recommend this project to anyone looking for a MacBook alternative.
 
 You can find a wealth of knowledge on [Reddit](https://www.reddit.com/r/hackintosh/), [TonyMacX86](https://www.tonymacx86.com) or [Google](https://www.google.com).
 
@@ -78,7 +82,7 @@ Should you find an error, or improve anything, be it in the config itself or in 
 
 | Feature                              | Status | Dependency          | Remarks                      |
 | :----------------------------------- | ------ | ------------------- | ---------------------------- |
-| Fingerprint Reader   | ❌ | - | Never gonna work.    |
+| Fingerprint Reader   | ❌ | - | Will never work.    |
 | Wireless WAN         | ❌ | `DISABLED` in BIOS to save power.   | Unable to investigate as I have no need and my model did not come with WWAN |
 | Internal Microphone         | ❌ | - | - |
 | Fan Control / Multimedia Keys | ❌ | `YogaSMC.kext` | YogaSMC.kext needs to be updated in order to work with X1C8 |
@@ -145,8 +149,7 @@ It should work and your X1C8 should boot and work fine. **You will at minimum ne
 <summary><strong>THIS IS A GUIDE!</strong></summary>
 </br>
 
-- To install macOS follow the guides provided by [Dortania](https://dortania.github.io/OpenCore-Install-Guide/)
-- Useful tools by [CorpNewt](https://github.com/corpnewt) and [headkaze](https://github.com/headkaze/Hackintool)
+**The one and only guide to install macOS, provided by [Dortania](https://dortania.github.io/OpenCore-Install-Guide/)**
 
 </details>  
 
@@ -250,6 +253,11 @@ Refer to [ThinkPad X1 Carbon Gen 8 Specs](https://psref.lenovo.com/syspool/Sys/P
   - [aidanchandra/x1c7-hackintosh](https://github.com/aidanchandra/x1c7-hackintosh)
   - [seven-of-eleven/Lenovo-ThinkPad-X1C7-OC-Hackintosh](https://github.com/seven-of-eleven/Lenovo-ThinkPad-X1C7-OC-Hackintosh)
   - [huyhoang8398/x1c7-hackintosh-20R1](https://github.com/huyhoang8398/x1c7-hackintosh-20R1)
+	
+- X1C6-Hackintosh repositories:
+  - [tylernguyen/x1c6-hackintosh](https://github.com/tylernguyen/x1c6-hackintosh)
+  - [benbender/x1c6-hackintosh](https://github.com/benbender/x1c6-hackintosh)
+  - [zhtengw/EFI-for-X1C6-hackintosh](https://github.com/zhtengw/EFI-for-X1C6-hackintosh)
 
 </details>  
 
@@ -265,8 +273,8 @@ Refer to [ThinkPad X1 Carbon Gen 8 Specs](https://psref.lenovo.com/syspool/Sys/P
 - [headkaze](https://github.com/headkaze) for [Hackintool](https://github.com/headkaze/Hackintool)
 - [Mieze](https://github.com/Mieze) for [IntelMausiEthernet](https://github.com/Mieze/IntelMausiEthernet)
 - [OpenIntelWireless](https://github.com/OpenIntelWireless/IntelBluetoothFirmware/releases) for [IntelBluetoothFirmware](https://github.com/OpenIntelWireless/IntelBluetoothFirmware), [itlwm](https://github.com/OpenIntelWireless/itlwm) and [HeliPort](hhttps://github.com/OpenIntelWireless/HeliPort)
-- And every other contributor
 - People at [r/hackintosh](https://www.reddit.com/r/hackintosh/) for their advice and help
+- And every other contributor
 
 </details>  
 
