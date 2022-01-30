@@ -290,36 +290,38 @@ Refer to [ThinkPad X1 Carbon Gen 8 Specs](https://psref.lenovo.com/syspool/Sys/P
 
 **Security**
 
-
-- `Password` **Disabled**
-- `Fingerprint` **Disabled**
-- `Security Chip` **Disabled**
-- `Memory Protection -> Execution Prevention` **Enabled**
-- `Virtualization -> Kernel DMA Protection` **Disabled**
-- `Virtualization -> Intel Virtualization Technology` **Enabled**
-- `Virtualization -> Intel VT-d Feature` **Disabled**
-- `Virtualization -> Enhanced Windows Biometric Security` **Disabled**
-- `I/O Port Access -> FingerPrint Reader` **Disabled**
-- `I/O Port Access -> Wireless WAN` **Disabled**
-- `Secure Boot -> Secure Boot` **Disabled**
-- `Intel SGX -> Intel SGX Control` **Disabled**
-- `Device Guard` **Disabled**
+- **Memory Protection**
+  - `Execution Prevention` **Enabled**
+- **Virtualization**
+  - `Kernel DMA Protection` **Disabled**
+  - `Intel Virtualization Technology` **Enabled**
+  - `Intel VT-d Feature` **Disabled**
+  - `Enhanced Windows Biometric Security` **Disabled**
+- **I/O Port Access**
+  - `Wireless WAN` **Disabled**
+- **Secure Boot**
+  - `Secure Boot` **Disabled**
+- **Intel SGX**
+  - `Intel SGX Control` **Disabled**
+- **Device Guard**
+  - `Device Guard` **Disabled**
 
 **Startup**
 
 - `UEFI/Legacy Boot` **UEFI Only**
 - `CSM Support` **No**
-- `Boot Mode` **Diagnostics** (This can be changed to "Quick" once you know your system is running properly)
+- `Boot Mode` **Quick**
 
 </details>  
 
-<details><summary><strong>Own prev-lang-kbd</strong></summary>
+<details><summary><strong>KEYBOARD LAYOUT</strong></summary>
 <br>
-Either add as a string or as a data ( HEX data [(ProperTree)](https://github.com/corpnewt/ProperTree) )
+
+Either add as a `String` or as a `Data` (HEX Data [ProperTree](https://github.com/corpnewt/ProperTree))
 
 Format is lang-COUNTRY:keyboard
 
-- 🇺🇸 | [0] en_US - U.S --> en-US:0 --> (656e2d55 533a30 in HEX)
+🇺🇸 | [0] en_US - U.S --> en-US:0 --> (656e2d55 533a30 in HEX)
 
 | Key           | Type   | Value   |
 | ------------- | ------ | ------- |
