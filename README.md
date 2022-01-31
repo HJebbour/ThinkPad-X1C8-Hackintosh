@@ -52,19 +52,20 @@ Should you find an error, or improve anything, be it in the config itself or in 
 | Feature                              | Status | Dependency          | Remarks                      |
 | :----------------------------------- | ------ | ------------------- | ---------------------------- |
 | WiFi                                       | ✅ | `AirportIltwm.kext`  | -       |
-| Bluetooth                                  | ✅ | `IntelBluetoothFirmware.kext`, `BlueToolFixup.kext`, and `USBMap.kext` | - |
+| Bluetooth                                  | ✅ | `IntelBluetoothFirmware.kext`, `BlueToolFixup.kext`, and `USBMap.kext` | Mouse and Keyboard not working via Bluetooth |
 | Ethernet                                   | ✅ | `IntelMausi.kext` | -                  |
 | HDMI 1.4                               | ✅ | BusID patching | Hotplug with 4K Resolution |
 | USB 2.0 / USB 3.0 | ✅ | `USBMap.kext`   | Create your own USBMap.kext using [CorpNewt](https://github.com/corpnewt/USBMap) |
 | USB 3.1 (Type-C)                           | ✅ | `USBMap.kext` and enable Thunderbolt 3 in `BIOS` | Hotplug |
 | USB Power Properties in macOS              | ✅ | - | - |
+| ThinkPad USB-C Docking Station | ✅ | - | Work smoothly |
 
 > ### Display, TrackPad, TrackPoint, Keyboard, and Webcam
 | Feature                              | Status | Dependency          | Remarks                      |
 | :----------------------------------- | ------ | ------------------- | ---------------------------- |
 | Brightness Adjustments | ✅  | `WhateverGreen.kext`, `SSDT-PNLF.aml`, `enable-backlight-smoother` property, and `BrightnessKeys.kext`| `enable-backlight-smoother` property is optional for smoother birghtness adjustments |
 | TrackPoint             | ✅  | `VoodooPS2Controller.kext`                                      | -       |
-| TrackPad               | ✅  | `VoodooI2C.kext`, and `VoodooI2CHID.kext` | - |
+| TrackPad               | ✅  | `VoodooI2C.kext` and `VoodooI2CHID.kext` | - |
 | Built-in Keyboard      | ✅  | `VoodooPS2Controller.kext` | - |
 | Webcam      | ✅  | `USBMap.kext` | - |
 
@@ -106,7 +107,6 @@ Should you find an error, or improve anything, be it in the config itself or in 
 | Boot chime                      | ⚠️ | - | Not yet tested |
 | FireVault 2                      | ⚠️ | - | Not yet tested |
 | Sidecar                      | ⚠️ | - | No device to test |
-| ThinkPad USB-C Docking Station | ⚠️ | - | Will be tested soon |
 
 </details> 
 
