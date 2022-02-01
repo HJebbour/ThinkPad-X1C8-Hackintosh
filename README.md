@@ -126,6 +126,7 @@ Should you find an error, or improve anything, be it in the config itself or in 
 | :----------------------------------- | ------ | ---------------------------- |
 | Battery Life | ⏳ | Need time to thoroughly test battery life and compare with Windows 11 |
 | Four Speakers | ⏳ | I need to find a proper way to combine the two outputs or wait for a new `AppleALC.kext` update |
+| DRM | ⏳ | - |
 
 </details>
 
