@@ -73,7 +73,12 @@ Should you find an error, or improve anything, be it in the config itself or in 
 | Feature                              | Status | Dependency          | Remarks                      |
 | :----------------------------------- | ------ | ------------------- | ---------------------------- |
 | iCloud, iMessage, FaceTime | ✅ | Whitelisted Apple ID, Valid SMBIOS   | See [Dortania / OpenCore-Install-Guide](https://dortania.github.io/OpenCore-Post-Install/universal/iservices.html)  |
-| Handoff | ✅ | `AirportIltwm.kext` | - |
+| Handoff | ✅ | - | - |
+| Universal Clipboard | ✅ | - | - |
+| SMS & Phone Call via iPhone | ✅ | - | - |
+| AirPlay to Mac | ✅ | - | - |
+
+
 	
 > ### Miscellaneous
 | Feature                              | Status | Dependency          | Remarks                      |
@@ -92,8 +97,10 @@ Should you find an error, or improve anything, be it in the config itself or in 
 | Wireless WAN         | ❌ | `DISABLED` in BIOS to save power.   | Unable to investigate as I have no need and my model did not come with WWAN |
 | Internal Microphone         | ❌ | - | - |
 | Fan Control / Multimedia Keys | ❌ | `YogaSMC.kext` | YogaSMC.kext needs to be updated in order to work with X1C8 |
-| Continuty              | ❌    | - | Not working with Intel cards |
-| AirDrop              | ❌    | - | Not working with Intel cards |
+| Continuity Camera | ❌    | - | Not working with Intel cards |
+| AirDrop | ❌    | - | Not working with Intel cards |
+| Apple Watch Auto Unlock | ❌  | - | Not working with Intel cards |
+| Instant Hotspot | ❌  | - | Not working with Intel cards |
 
 </details>  
 
@@ -107,6 +114,7 @@ Should you find an error, or improve anything, be it in the config itself or in 
 | Boot chime                      | ⚠️ | - | Not yet tested |
 | FireVault 2                      | ⚠️ | - | Not yet tested |
 | Sidecar                      | ⚠️ | - | No device to test |
+| Continuity Markup and Sketch | ⚠️ | - | No device to test |
 
 </details> 
 
