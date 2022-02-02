@@ -93,6 +93,7 @@ Should you find an error, or improve anything, be it in the config itself or in 
 | :----------------------------------- | ------ | ------------------- | ---------------------------- |
 | Fingerprint Reader | ❌ | - | Will never work |
 | Wireless WAN | ❌ | `DISABLED` in BIOS to save power. | Unable to investigate as I have no need and my model did not come with WWAN |
+| DRM | ❌ | iGPU | DRM is broken with iGPUs |
 | Internal Microphone | ❌ | - | I hope it will work one day |
 | Fan Control / Multimedia Keys | ❌ | `YogaSMC.kext` | YogaSMC.kext needs to be updated in order to work with X1C8 Hardware |
 | Continuity Camera | ❌ | - | Not working with Intel cards |
@@ -123,7 +124,6 @@ Should you find an error, or improve anything, be it in the config itself or in 
 | Feature                              | Status | Remarks                      |
 | :----------------------------------- | ------ | ---------------------------- |
 | Battery Life | ⏳ | Between 3 and 4 hours but it still takes time to thoroughly test the battery life and compare it with Windows 11 |
-| DRM | ⏳ | - |
 
 </details>
 
