@@ -33,53 +33,51 @@ Should you find an error, or improve anything, be it in the config itself or in 
 > ### Video and Audio
 | Feature                              | Status | Dependency          | Remarks                      |
 | :----------------------------------- | ------ | ------------------- | ---------------------------- |
-| Full Graphics Accleration (QE/CI)    | ✅   | `WhateverGreen.kext` & `AAPL,ig-platform-id` = 0900A53E & `device-id` = C89B0000 | -   |
-| Audio Output                      | ✅   | `AppleALC.kext` with Layout ID = 71    | -   |
-| Audio Speakers                       | ✅   | `AppleALC.kext` with Layout ID = 71    | You have to manually select the proper speakers (2 at the bottom rear). I can't get all 4 speakers to work together for now |
-| Audio Input | ✅   | `AppleALC.kext` with Layout ID = 71    | Headset microphone is inconsistent and needs more testing   |
-| Automatic Headphone Output Switching | ✅   | `AppleALC.kext` with Layout ID = 71    | -   |
+| Full Graphics Accleration (QE/CI) | ✅ | `WhateverGreen.kext` & `AAPL,ig-platform-id` = 0900A53E & `device-id` = C89B0000 | - |
+| Audio Output | ✅ | `AppleALC.kext` with Layout ID = 71 | - |
+| Audio Speakers | ✅ | `AppleALC.kext` with Layout ID = 71 | You have to manually aggregate the two output using "Audio MIDI Setup" to have 4 speakers working |
+| Audio Input | ✅ | `AppleALC.kext` with Layout ID = 71 | Headset microphone is inconsistent and needs more testing |
+| Automatic Headphone Output Switching | ✅ | `AppleALC.kext` with Layout ID = 71 | - |
 
 > ### Power Management
 | Feature                              | Status | Dependency          | Remarks                      |
 | :----------------------------------- | ------ | ------------------- | ---------------------------- |
-| Battery | ✅    | `ECEnabler.kext`             | - |
-| CPU Power Management (SpeedShift)    |    ✅  | `CPUFriend.kext` with `CPUFriendDataProvider.kext` | Idle at 800mhz
-| iGPU Power Management        | ✅ | `SSDT-PLUG.aml` | - |
-| NVMe Drive Battery Management | ✅     | `NVMeFix.kext`  | Generally, NVMe drives will drain more power than SATA drives.           |
-| S3 Sleep / Hibernation Mode 3 | ✅ | - | - |
+| Battery | ✅ | `ECEnabler.kext` | - |
+| CPU Power Management (SpeedShift) | ✅ | `CPUFriend.kext` with `CPUFriendDataProvider.kext` | - |
+| iGPU Power Management | ✅ | `SSDT-PLUG.aml` | - |
+| NVMe Drive Battery Management | ✅ | `NVMeFix.kext` | Improve NVMe drive power management |
+| S3 Sleep / Hibernation Mode 3 | ✅ | - | Needs more improvement, exit Sleep mode with CMOS error |
 
 > ### Connectivity
 | Feature                              | Status | Dependency          | Remarks                      |
 | :----------------------------------- | ------ | ------------------- | ---------------------------- |
-| WiFi                                       | ✅ | `AirportIltwm.kext`  | -       |
-| Bluetooth                                  | ✅ | `IntelBluetoothFirmware.kext`, `BlueToolFixup.kext`, and `USBMap.kext` | Mouse and Keyboard not working via Bluetooth |
-| Ethernet                                   | ✅ | `IntelMausi.kext` | -                  |
-| HDMI 1.4                               | ✅ | BusID patching | Hotplug with 4K Resolution |
-| USB 2.0 / USB 3.0 | ✅ | `USBMap.kext`   | Create your own USBMap.kext using [CorpNewt](https://github.com/corpnewt/USBMap) |
-| USB 3.1 (Type-C)                           | ✅ | `USBMap.kext` and enable Thunderbolt 3 in `BIOS` | Hotplug |
-| USB Power Properties in macOS              | ✅ | - | - |
+| WiFi | ✅ | `AirportIltwm.kext` | - |
+| Bluetooth | ✅ | `IntelBluetoothFirmware.kext`, `BlueToolFixup.kext`, and `USBMap.kext` | Mouse and Keyboard not working via Bluetooth |
+| Ethernet | ✅ | `IntelMausi.kext` | - |
+| HDMI 1.4 | ✅ | BusID patching | Hotplug with 4K Resolution |
+| USB 2.0 / USB 3.0 | ✅ | `USBMap.kext` | Create your own USBMap.kext using [CorpNewt](https://github.com/corpnewt/USBMap) |
+| USB 3.1 (Type-C) | ✅ | `USBMap.kext` and enable Thunderbolt 3 in `BIOS` | Hotplug is working |
+| USB Power Properties in macOS | ✅ | - | - |
 | ThinkPad USB-C Docking Station | ✅ | - | Work smoothly |
 
 > ### Display, TrackPad, TrackPoint, Keyboard, and Webcam
 | Feature                              | Status | Dependency          | Remarks                      |
 | :----------------------------------- | ------ | ------------------- | ---------------------------- |
-| Brightness Adjustments | ✅  | `WhateverGreen.kext`, `SSDT-PNLF.aml`, `enable-backlight-smoother` property, and `BrightnessKeys.kext`| `enable-backlight-smoother` property is optional for smoother birghtness adjustments |
-| TrackPoint             | ✅  | `VoodooPS2Controller.kext`                                      | -       |
-| TrackPad               | ✅  | `VoodooI2C.kext` and `VoodooI2CHID.kext` | - |
-| Built-in Keyboard      | ✅  | `VoodooPS2Controller.kext` | - |
-| Webcam      | ✅  | `USBMap.kext` | - |
+| Brightness Adjustments | ✅ | `WhateverGreen.kext`, `SSDT-PNLF.aml`, `enable-backlight-smoother` property, and `BrightnessKeys.kext`| `enable-backlight-smoother` property is optional for smoother birghtness adjustments |
+| TrackPoint | ✅ | `VoodooPS2Controller.kext` | - |
+| TrackPad | ✅ | `VoodooI2C.kext` and `VoodooI2CHID.kext` | - |
+| Built-in Keyboard | ✅ | `VoodooPS2Controller.kext` | - |
+| Webcam | ✅ | `USBMap.kext` | - |
 
 > ### macOS Continuity
 | Feature                              | Status | Dependency          | Remarks                      |
 | :----------------------------------- | ------ | ------------------- | ---------------------------- |
-| iCloud, iMessage, FaceTime | ✅ | Whitelisted Apple ID, Valid SMBIOS   | See [Dortania / OpenCore-Install-Guide](https://dortania.github.io/OpenCore-Post-Install/universal/iservices.html)  |
+| iCloud, iMessage, FaceTime | ✅ | Whitelisted Apple ID, Valid SMBIOS | See [Dortania / OpenCore-Install-Guide](https://dortania.github.io/OpenCore-Post-Install/universal/iservices.html) |
 | Handoff | ✅ | - | - |
 | Universal Clipboard | ✅ | - | - |
 | SMS & Phone Call via iPhone | ✅ | - | - |
 | AirPlay to Mac | ✅ | - | - |
 
-
-	
 > ### Miscellaneous
 | Feature                              | Status | Dependency          | Remarks                      |
 | :----------------------------------- | ------ | ------------------- | ---------------------------- |
@@ -93,14 +91,14 @@ Should you find an error, or improve anything, be it in the config itself or in 
 
 | Feature                              | Status | Dependency          | Remarks                      |
 | :----------------------------------- | ------ | ------------------- | ---------------------------- |
-| Fingerprint Reader   | ❌ | - | Will never work.    |
-| Wireless WAN         | ❌ | `DISABLED` in BIOS to save power.   | Unable to investigate as I have no need and my model did not come with WWAN |
-| Internal Microphone         | ❌ | - | - |
-| Fan Control / Multimedia Keys | ❌ | `YogaSMC.kext` | YogaSMC.kext needs to be updated in order to work with X1C8 |
-| Continuity Camera | ❌    | - | Not working with Intel cards |
-| AirDrop | ❌    | - | Not working with Intel cards |
-| Apple Watch Auto Unlock | ❌  | - | Not working with Intel cards |
-| Instant Hotspot | ❌  | - | Not working with Intel cards |
+| Fingerprint Reader | ❌ | - | Will never work |
+| Wireless WAN | ❌ | `DISABLED` in BIOS to save power. | Unable to investigate as I have no need and my model did not come with WWAN |
+| Internal Microphone | ❌ | - | I hope it will work one day |
+| Fan Control / Multimedia Keys | ❌ | `YogaSMC.kext` | YogaSMC.kext needs to be updated in order to work with X1C8 Hardware |
+| Continuity Camera | ❌ | - | Not working with Intel cards |
+| AirDrop | ❌ | - | Not working with Intel cards |
+| Apple Watch Auto Unlock | ❌ | - | Not working with Intel cards |
+| Instant Hotspot | ❌ | - | Not working with Intel cards |
 
 </details>  
 
@@ -110,10 +108,10 @@ Should you find an error, or improve anything, be it in the config itself or in 
 
 | Feature                              | Status | Dependency          | Remarks                      |
 | :----------------------------------- | ------ | ------------------- | ---------------------------- |
-| Thunderbolt 3                      | ⚠️ | - | No device to test |
-| Boot chime                      | ⚠️ | - | Not yet tested |
-| FireVault 2                      | ⚠️ | - | Not yet tested |
-| Sidecar                      | ⚠️ | - | No device to test |
+| Thunderbolt 3 | ⚠️ | - | No device to test |
+| Boot chime | ⚠️ | - | Not yet configured |
+| FireVault 2 | ⚠️ | - | Not yet tested |
+| Sidecar | ⚠️ | - | No device to test |
 | Continuity Markup and Sketch | ⚠️ | - | No device to test |
 
 </details> 
@@ -124,8 +122,7 @@ Should you find an error, or improve anything, be it in the config itself or in 
 
 | Feature                              | Status | Remarks                      |
 | :----------------------------------- | ------ | ---------------------------- |
-| Battery Life | ⏳ | Need time to thoroughly test battery life and compare with Windows 11 |
-| Four Speakers | ⏳ | I need to find a proper way to combine the two outputs or wait for a new `AppleALC.kext` update |
+| Battery Life | ⏳ | Between 3 and 4 hours but it still takes time to thoroughly test the battery life and compare it with Windows 11 |
 | DRM | ⏳ | - |
 
 </details>
@@ -179,13 +176,13 @@ These are relevant components on my machine which may differ from yours, keep th
 | Type | 20U9 | - |
 | CPU | Intel Core i7-10510U | - |
 | GPU | Intel UHD Graphics | - |
-| SSD | WDC PC SN720 SDAQNTW-512G-1001 | - |
+| SSD | WDC PC SN720 SDAQNTW-512G-1001 | Swapped for better compatibility, the laptop came with a Toshiba SSD |
 | Screen | 14" FHD - 1920 x 1080 | - |
 | Memory | 8GB / 2133MHz LPDDR3 | - |
 | Battery | Integrated Li-Polymer 51Wh | - |
 | Camera | 720p Camera | - |
 | Wi-Fi & BT | Intel Wi-Fi 6 AX201 | - |
-| Input | PS2 Keyboard & Synaptics TrackPad | - |
+| Input | PS2 Keyboard & Synaptics I2C HID TrackPad | - |
 | Ports | 2x USB 3.1 Gen 1 (Right USB Always On)</br> 2x USB 3.1 Type-C Gen 2 / Thunderbolt 3 (Power Delivery and DisplayPort) [Max 5120x2880 @60Hz]</br> HDMI 1.4 (Max 4096x2160 @24Hz) | - |
 
 Refer to [ThinkPad X1 Carbon Gen 8 Specs](https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_X1_Carbon_Gen_8/ThinkPad_X1_Carbon_Gen_8_Spec.PDF) for possible stock configurations.
@@ -293,10 +290,11 @@ Refer to [ThinkPad X1 Carbon Gen 8 Specs](https://psref.lenovo.com/syspool/Sys/P
 
 </details>  
 
-<details><summary><strong>NEOFETCH</strong></summary>
+<details><summary><strong>SCREENSHOTS</strong></summary>
     <br>
     <p float="left">
         <img src="./Docs/Neofetch-Screenshot.png" alt="Neofetch" width="1000">
+	<img src="./Docs/Blackmagic_Disk_Speed_Test.png" alt="Blackmagic Disk Speed Test">
     </p>
 </details> 
 
@@ -386,12 +384,20 @@ Use [GenSMBIOS](https://github.com/corpnewt/GenSMBIOS) to create your own serial
 
 **Note:** If you use a different SMBIOS model than the MacbookPro16,3 that I've used. The provided USB mapping will not work.  You will need to edit the `USBMap.kext` file.  You can right click on the file and select **Show Package Contents**.  From there you can open the Info.plist file in ProperTree and change MacBookPro16,3 to whatever Model ID you've chosen. This should provide a working USBMap.kext.
 
-</details>  
+</details> 
 
 <details>  
 <summary><strong>POWER MANAGEMENT</strong></summary>
 <br>
 
 Generate CPUFriendDataProvider for your machine [here](https://github.com/fewtarius/CPUFriendFriend) or use those I've provided. Highly recommended that you use power management.
+
+</details>
+
+<details>  
+<summary><strong>AUDIO</strong></summary>
+<br>
+
+Using the Layout ID 71 will enable the 4 speakers (Top front & Bottom rear) in **System Preferences>Sound** allowing you to select either set of speakers (Two Output). To combine the two you'll need to open Audio MIDI Setup and create `Multi-Output Device` with both sets of speakers. Unfortunately you can't control natively the volume of an Aggregate Device with the volume keys. You'll need to install [AggregateVolumeMenu](https://github.com/adaskar/AggregateVolumeMenu)
 
 </details>
