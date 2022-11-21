@@ -300,7 +300,7 @@ Refer to [ThinkPad X1 Carbon Gen 8 Specs](https://psref.lenovo.com/syspool/Sys/P
 
 ## Before Installation
 
-<details><summary><strong>UEFI SETTINGS</strong></summary>
+<details><summary><strong>BIOS SETTINGS</strong></summary>
 <br>
 	
 **Config**
