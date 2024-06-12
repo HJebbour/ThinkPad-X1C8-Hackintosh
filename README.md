@@ -3,11 +3,11 @@
 OpenCore-based EFI for Lenovo Thinkpad X1 Carbon 8th Generation | Model 20U9
 <img align="right" src="https://raw.githubusercontent.com/HJebbour/ThinkPad-X1C8-Hackintosh/main/Docs/X1C8.jpg" alt="Lenovo ThinkPad X1 Carbon Gen 8" width="460">
 
-**Status: Work In Progress | Stable | Daily driver**
+**Status: Stable | Daily driver**
 
-[![macOS](https://img.shields.io/badge/macOS-Monterey-blueviolet.svg)](https://www.apple.com/macos/monterey/)
-[![Version](https://img.shields.io/badge/12.2-blueviolet.svg)](https://support.apple.com/en-us/HT212585#macos122)
-[![OpenCore](https://img.shields.io/badge/OpenCore-0.7.7-blue.svg)](https://github.com/acidanthera/OpenCorePkg/releases/tag/0.7.7)
+[![macOS](https://img.shields.io/badge/macOS-Sonoma-green.svg)](https://www.apple.com/macos/monterey/)
+[![Version](https://img.shields.io/badge/14.5-green.svg)](https://support.apple.com/en-us/HT212585#macos122)
+[![OpenCore](https://img.shields.io/badge/OpenCore-1.0.0-blue.svg)](https://github.com/acidanthera/OpenCorePkg/releases/tag/0.7.7)
 [![Model](https://img.shields.io/badge/Model-20U9-red)](https://www.lenovo.com/us/en/p/laptops/thinkpad/thinkpadx1/x1-carbon-gen-8-/20u9005mus)
 
 This repo is forked from several X1C7-Hackintosh repositories (See **OTHER REPOSITORIES**)
@@ -18,6 +18,8 @@ As you embark on your Hackintosh journey you are encouraged to **READ** the enti
 This X1C8 Hackintosh project aims to be an all-in-one maintained hub for Opencore-based hackintoshes on the Thinkad X1 Carbon Gen 8. In short, this X1C8-Hackintosh is very stable and is currently my daily driver. I fully recommend this project to anyone looking for a MacBook alternative.
 
 You can find a wealth of knowledge on [Reddit](https://www.reddit.com/r/hackintosh/), [TonyMacX86](https://www.tonymacx86.com) or [Google](https://www.google.com).
+
+**Important:** If you are upgrading to macOS 14.4+ you have to set the value of `Misc -> Security -> SecureBootModel` to `Disabled` in config.plist and disable AirportItlwm kext untill the upgrade finishes and then use "AirportItlwm_v2.3.0_stable_Sonoma14.4.kext".
 
 Should you find an error, or improve anything, be it in the config itself or in the my documentation, please consider opening an issue or a pull request to contribute.
 
@@ -42,19 +44,21 @@ Should you find an error, or improve anything, be it in the config itself or in 
 > ### Power Management
 | Feature                              | Status | Dependency          | Remarks                      |
 | :----------------------------------- | ------ | ------------------- | ---------------------------- |
-| Battery | ✅ | `ECEnabler.kext` | - |
+| Battery | ✅ | `ECEnabler.kext` | Battery life is native compared to Windows and Linux |
 | CPU Power Management (SpeedShift) | ✅ | `CPUFriend.kext` with `CPUFriendDataProvider.kext` | - |
 | iGPU Power Management | ✅ | `SSDT-PLUG.aml` | - |
-| NVMe Drive Battery Management | ✅ | `NVMeFix.kext` | Improve NVMe drive power management |
-| S3 Sleep / Hibernation Mode 3 | ✅ | - | Needs more improvement, exit Sleep mode with CMOS error |
+| NVMe Drive Battery Management | ✅ | `NVMeFix.kext` | Improves NVMe drive power management |
+| S3 Sleep / Hibernation Mode 3 | ✅ | - | - |
 
 > ### Connectivity
 | Feature                              | Status | Dependency          | Remarks                      |
 | :----------------------------------- | ------ | ------------------- | ---------------------------- |
 | WiFi | ✅ | `AirportIltwm.kext` | - |
-| Bluetooth | ✅ | `IntelBluetoothFirmware.kext`, `BlueToolFixup.kext`, and `USBMap.kext` | Mouse and Keyboard not working via Bluetooth |
+| Bluetooth | ✅ | `IntelBluetoothFirmware.kext`, `BlueToolFixup.kext`, and `USBMap.kext` | Headset's microphone is not working via Bluetooth |
 | Ethernet | ✅ | `IntelMausi.kext` | - |
-| HDMI 1.4 | ✅ | BusID patching | Hotplug with 4K Resolution |
+| HDMI 1.4 | ✅ | BusID patching | It only works properly after being put to sleep and woken up once (Hotplug & 4K resolution are supported) |
+| 1st USB-C (Display output) | ✅ | - | It only works properly after being put to sleep and woken up once (Hotplug & 4K resolution are supported) |
+| 2nd USB-C (Display output) | ✅ | - | It works properly (Hotplug is supported) |
 | USB 2.0 / USB 3.0 | ✅ | `USBMap.kext` | Create your own USBMap.kext using [CorpNewt](https://github.com/corpnewt/USBMap) |
 | USB 3.1 (Type-C) | ✅ | `USBMap.kext` and enable Thunderbolt 3 in `BIOS` | Hotplug is working |
 | USB Power Properties in macOS | ✅ | - | - |
@@ -69,19 +73,20 @@ Should you find an error, or improve anything, be it in the config itself or in 
 | Built-in Keyboard | ✅ | `VoodooPS2Controller.kext` | - |
 | Webcam | ✅ | `USBMap.kext` | - |
 
+
 > ### macOS Continuity
 | Feature                              | Status | Dependency          | Remarks                      |
 | :----------------------------------- | ------ | ------------------- | ---------------------------- |
-| iCloud, iMessage, FaceTime | ✅ | Whitelisted Apple ID, Valid SMBIOS | See [Dortania / OpenCore-Install-Guide](https://dortania.github.io/OpenCore-Post-Install/universal/iservices.html) |
-| Handoff | ✅ | - | - |
-| Universal Clipboard | ✅ | - | - |
-| SMS & Phone Call via iPhone | ✅ | - | - |
-| AirPlay to Mac | ✅ | - | - |
+| iCloud, iMessage, FaceTime | ✅ | Whitelisted Apple ID, Valid SMBIOS See [Dortania / OpenCore-Install-Guide](https://dortania.github.io/OpenCore-Post-Install/universal/iservices.html) | Switch to itlwm.kext in order to work with macOS Sonoma |
+| Sidecar (wired) | ✅ | - | Tested with iPad Pro M1 with USB-C to USB-C cable |
 
 > ### Miscellaneous
 | Feature                              | Status | Dependency          | Remarks                      |
 | :----------------------------------- | ------ | ------------------- | ---------------------------- |
-| Dual Boot | ✅ | - | Windows & macOS (Use [this](https://dortania.github.io/OpenCore-Multiboot/empty/samedisk.html#precautions) guide to setup dual boot on the same drive) |
+| Multiple Boot | ✅ | - | macOS, Windows, and Linux distributions (Use [this](https://dortania.github.io/OpenCore-Multiboot/empty/samedisk.html#precautions) guide to setup dual boot on the same drive) |
+| Boot chime | ✅ | - | Working like a charme |
+| Fan Control / Multimedia Keys | ✅ | `YogaSMC.kext` | I modified YogaSMC.kext in order to work with my setup |
+| FireVault 2 | ✅ | - | Working but the keyboard layout during boot is messed up! |
 
 </details>  
 
@@ -95,37 +100,19 @@ Should you find an error, or improve anything, be it in the config itself or in 
 | Wireless WAN | ❌ | `DISABLED` in BIOS to save power. | Unable to investigate as I have no need and my model did not come with WWAN |
 | DRM | ❌ | iGPU | DRM is broken with iGPUs |
 | Internal Microphone | ❌ | - | I hope it will work one day |
-| Fan Control / Multimedia Keys | ❌ | `YogaSMC.kext` | YogaSMC.kext needs to be updated in order to work with X1C8 Hardware |
-| Continuity Camera | ❌ | - | Not working with Intel cards |
-| AirDrop | ❌ | - | Not working with Intel cards |
-| Apple Watch Auto Unlock | ❌ | - | Not working with Intel cards |
-| Instant Hotspot | ❌ | - | Not working with Intel cards |
+| Thunderbolt 3 | ❌ | - | Not working |
+| Continuity Camera | ❌ | - | Not working with Intel wireless cards |
+| AirDrop | ❌ | - | Not working with Intel wireless cards |
+| Apple Watch Auto Unlock | ❌ | - | Not working with Intel wireless cards |
+| Instant Hotspot | ❌ | - | Not working with Intel wireless cards |
+| Sidecar (wireless) | ❌ | - | Not working with Intel wireless cards |
+| Continuity Markup and Sketch | ❌ | - | Not working with Intel wireless cards |
+| Handoff | ❌ | - | Support dropped with macOS Sonoma and the new AirportIltwm kext |
+| Universal Clipboard | ❌ | - | Support dropped with macOS Sonoma and the new AirportIltwm kext |
+| SMS & Phone Call via iPhone | ❌ | - | Support dropped with macOS Sonoma and the new AirportIltwm kext |
+| AirPlay to Mac | ❌ | - | Support dropped with macOS Sonoma and the new AirportIltwm kext |
 
 </details>  
-
-<details>  
-<summary><strong>UNTESTED ⚠️</strong></summary>
-<br>
-
-| Feature                              | Status | Dependency          | Remarks                      |
-| :----------------------------------- | ------ | ------------------- | ---------------------------- |
-| Thunderbolt 3 | ⚠️ | - | No device to test |
-| Boot chime | ⚠️ | - | Not yet configured |
-| FireVault 2 | ⚠️ | - | Not yet tested |
-| Sidecar | ⚠️ | - | No device to test |
-| Continuity Markup and Sketch | ⚠️ | - | No device to test |
-
-</details> 
-
-<details>  
-<summary><strong>TO-DO ⏳</strong></summary>
-<br>
-
-| Feature                              | Status | Remarks                      |
-| :----------------------------------- | ------ | ---------------------------- |
-| Battery Life | ⏳ | Between 3 and 4 hours but it still takes time to thoroughly test the battery life and compare it with Windows 11 |
-
-</details>
 
 ## Introduction
 
@@ -148,7 +135,7 @@ It should work and your X1C8 should boot and work fine. **You will at minimum ne
 
 > **NOTE** if you simply wish to copy my EFI please do the following:
 >
->1. [Generate SMBIOS values](https://dortania.github.io/OpenCore-Install-Guide/config-laptop.plist/coffee-lake-plus.html#nvram) and add them in the config.plist (Use MacBookPro16,3)
+>1. [Generate SMBIOS values](https://dortania.github.io/OpenCore-Install-Guide/config-laptop.plist/coffee-lake-plus.html#nvram) and add them in the config.plist (Use MacBookAir9,1)
 >2. Ensure the value of `showpicker` is  `true` in the config.plist file to provide the opencore menu when booting. 
 >3. Prepare your install [USB](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/)
 >4. Move the entire EFI folder (with your modifications) to the proper partition on your [USB](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/mac-install.html#setting-up-opencore-s-efi-environment) (or [SSD](https://dortania.github.io/OpenCore-Post-Install/universal/oc2hdd.html) once the install is complete).
@@ -196,9 +183,11 @@ Refer to [ThinkPad X1 Carbon Gen 8 Specs](https://psref.lenovo.com/syspool/Sys/P
 
 | Component      | Version |
 | -------------- | ------- |
-| OpenCore | 0.7.7 |
-| macOS Monterey | 12.2 |
-| Windows 11 | 21H2 |
+| OpenCore | 1.0.0 |
+| macOS Sonoma | 14.5 |
+| Windows 11 | 23H2 |
+| Ubuntu | 22.04.4 LTS |
+| Fedora | 40 |
 
 </details>
 
@@ -209,8 +198,10 @@ Refer to [ThinkPad X1 Carbon Gen 8 Specs](https://psref.lenovo.com/syspool/Sys/P
 | Component              |
 | ---------------------- |
 | SSDT-AWAC |
+| SSDT-ECRW |
 | SSDT-PLUG |
 | SSDT-PNLF |
+| SSDT-THINK |
 | SSDT-USBX |
 | SSDT-XOSI |
 
@@ -222,25 +213,29 @@ Refer to [ThinkPad X1 Carbon Gen 8 Specs](https://psref.lenovo.com/syspool/Sys/P
 
 | Kext                   | Version |
 | ---------------------- | ------- |
-| AirportItlwm | 2.1.0 |
-| AppleALC | 1.6.8 |
-| BlueToolFixup | 2.6.1 |
-| CPUFriend | 1.2.4 |
-| CPUFriendDataProvider | 1.0.0 |
-| ECEnabler | 1.0.2 |
-| IntelBluetoothFirmware | 2.1.0 |
+| AirportItlwm | 2.3.0 |
+| AppleALC | 1.9.0 |
+| BlueToolFixup | 2.6.8 |
+| BrightnessKeys | 1.0.3 |
+| CPUFriend | 1.2.7 |
+| CPUFriendDataProvider | - |
+| ECEnabler | 1.0.4 |
+| FeatureUnlock | 1.1.5 |
+| IntelBluetoothFirmware | 2.4.0 |
+| IntelBTPatcher | 2.4.0 |
 | IntelMausi | 1.0.7 |
-| Lilu | 1.5.9 |
-| NVMeFix | 1.0.9 |
-| SMCBatteryManager | 1.2.8 |
-| SMCProcessor | 1.2.8 |
-| SMCSuperIO | 1.2.8 |
-| USBMap | 1.0.0 |
-| VirtualSMC | 1.2.8 |
-| VoodooI2C | 2.6.5 |
-| VoodooI2CHID | 2.6.5 |
-| VoodooPS2Controller | 2.2.7 |
-| WhateverGreen | 1.5.6 |
+| Lilu | 1.6.7 |
+| NVMeFix | 1.1.1 |
+| SMCBatteryManager | 1.3.2 |
+| SMCProcessor | 1.3.2 |
+| SMCSuperIO | 1.3.2 |
+| USBMap | - |
+| VirtualSMC | 1.3.2 |
+| VoodooI2C | 2.8.0 |
+| VoodooI2CHID | 2.8.0 |
+| VoodooPS2Controller | 2.3.5 |
+| WhateverGreen | 1.6.6 |
+| YogaSMC | Modified version 1.5.1 |
 
 </details>
 
@@ -249,9 +244,15 @@ Refer to [ThinkPad X1 Carbon Gen 8 Specs](https://psref.lenovo.com/syspool/Sys/P
 
 |     Driver      | Version           |
 | --------------- | ----------------- |
-| OpenCanopy.efi | OpenCorePkg 0.7.7 |
-| OpenHfsPlus.efi | OpenCorePkg 0.7.7 |
-| OpenRuntime.efi | OpenCorePkg 0.7.7 |
+| OpenCanopy.efi | OpenCorePkg 1.0.0 |
+| OpenHfsPlus.efi | OpenCorePkg 1.0.0 |
+| OpenRuntime.efi | OpenCorePkg 1.0.0 |
+| AudioDxe.efi | OpenCorePkg 1.0.0 |
+| CrScreenshotDxe.efi | OpenCorePkg 1.0.0 |
+| Ext4Dxe.efi | OpenCorePkg 1.0.0 |
+| OpenLinuxBoot.efi | OpenCorePkg 1.0.0 |
+| ResetNvramEntry.efi | OpenCorePkg 1.0.0 |
+| ToggleSipEntry.efi | OpenCorePkg 1.0.0 |
 
 </details>
 
@@ -293,8 +294,10 @@ Refer to [ThinkPad X1 Carbon Gen 8 Specs](https://psref.lenovo.com/syspool/Sys/P
 <details><summary><strong>SCREENSHOTS</strong></summary>
     <br>
     <p float="left">
-        <img src="./Docs/Neofetch-Screenshot.png" alt="Neofetch" width="1000">
+        <img src="./Docs/macOS Sonoma 14.5 - ThinkPad X1 Carbon Gen 8.png" alt="Neofetch & About This Mac" width="1000">
+	<img src="./Docs/OpenCore boot picker.png" alt="Multiboot: Windows 11, Ubuntu, Fedora, and macOS" width="1000">
 	<img src="./Docs/Blackmagic_Disk_Speed_Test.png" alt="Blackmagic Disk Speed Test">
+	<img src="./Docs/macOS Sequoia 15 beta - ThinkPad X1 Carbon Gen 8.png" alt="Experimental support of macOS Sequoia" width="1000">
     </p>
 </details> 
 
@@ -310,7 +313,7 @@ Refer to [ThinkPad X1 Carbon Gen 8 Specs](https://psref.lenovo.com/syspool/Sys/P
   - `Trackpad` **Enabled**
 - **Display**
   - `Boot Display Device` **ThinkPad LCD**
-  - `Total Graphics Memory` **256MB**
+  - `Total Graphics Memory` **512MB**
   - `Boot Time Extension` **Disabled**
 - **CPU**
   - `Intel Hyper-Threading Technology` **Enabled**
@@ -399,5 +402,13 @@ Generate CPUFriendDataProvider for your machine [here](https://github.com/fewtar
 <br>
 
 Using the Layout ID 71 will enable the 4 speakers (Top front & Bottom rear) in **System Preferences>Sound** allowing you to select either set of speakers (Two Output). To combine the two you'll need to open Audio MIDI Setup and create `Multi-Output Device` with both sets of speakers. Unfortunately you can't control natively the volume of an Aggregate Device with the volume keys. You'll need to install [AggregateVolumeMenu](https://github.com/adaskar/AggregateVolumeMenu)
+
+</details>
+
+<details>  
+<summary><strong>MISCELLANEOUS</strong></summary>
+<br>
+
+Download YogaSMC App [here](https://github.com/zhen-zen/YogaSMC/releases) to complete the Fan Control / Multimedia Keys setup.
 
 </details>
