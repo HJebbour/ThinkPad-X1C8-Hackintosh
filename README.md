@@ -1,7 +1,7 @@
 # macOS on Lenovo Thinkpad X1 Carbon Gen 8 (20U9)
 
 OpenCore-based EFI for Lenovo Thinkpad X1 Carbon 8th Generation | Model 20U9
-<img align="right" src="https://raw.githubusercontent.com/HJebbour/ThinkPad-X1C8-Hackintosh/main/Docs/X1C8.jpg" alt="Lenovo ThinkPad X1 Carbon Gen 8" width="460">
+<img align="right" src="https://raw.githubusercontent.com/HJebbour/ThinkPad-X1C8-Hackintosh/main/Docs/X1C8.png" alt="Lenovo ThinkPad X1 Carbon Gen 8" width="460">
 
 **Status: Stable | Daily driver**
 
